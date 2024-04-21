@@ -14,7 +14,7 @@ const IndexPage: NextPage = () => {
             <Input variant='flushed' placeholder="비밀번호" />
         </Box>
         <Box maxW="md" mx="auto" pt="6">
-            <ButtonGroup title="로그인"/>
+            <ButtonGroup title="로그인" ftColor="white" color="#3589F0"/>
             <Link as={NextLink} href='/register'>회원가입하기</Link>
         </Box>
     </ServiceLayout>

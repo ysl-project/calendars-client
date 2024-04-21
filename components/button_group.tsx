@@ -1,6 +1,12 @@
 import { Box, Button } from "@chakra-ui/react"
 
-export const ButtonGroup = ({title}: {title: string}) => {
+interface Style {
+    title: String;
+    color: Stirng;
+    ftColor: String;
+} 
+
+export const ButtonGroup = ({title, color, ftColor}:Style) => {
     return (
     <Box width="full">
         <Button
@@ -8,8 +14,8 @@ export const ButtonGroup = ({title}: {title: string}) => {
             width="full"
             maxW="md"
             borderRadius="5"
-            bgColor="#3589F0"
-            color="white"
+            bgColor={color}
+            color={ftColor}
             colorScheme="blue"
         >
             {title}
