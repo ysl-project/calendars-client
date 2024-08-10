@@ -4,10 +4,11 @@ interface Props {
     title: string;
     bgColor: string;
     ftColor: string;
+    variant: string;
     onClick: () => void;
 } 
 
-export const ButtonGroup = ({title, bgColor, ftColor, onClick}: Props) => {
+export const ButtonGroup = ({title, bgColor, ftColor, variant, onClick}: Props) => {
     return (
     <Box width="full">
         <Button
@@ -19,6 +20,7 @@ export const ButtonGroup = ({title, bgColor, ftColor, onClick}: Props) => {
             color={ftColor}
             colorScheme="blue"
             onClick={onClick}
+            variant={variant}
         >
             {title}
         </Button>
