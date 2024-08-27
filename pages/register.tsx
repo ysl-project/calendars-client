@@ -18,6 +18,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [ckPassword, setCkPassword] = useState("");
     const [nickName, setNickName] = useState("");
+    const [birthDate, setBirthDate] = useState("");
 
     const onEailHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target as any;
@@ -39,11 +40,16 @@ const Register = () => {
         setNickName(value);
         console.log(nickName);
     }
+    const onBirthDateHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target as any;
+        setBirthDate(value);
+        console.log(birthDate);
+    }
 
     const onSubmit = async (): Promise<void> => {
-        console.log(email, password, ckPassword, nickName);
+        console.log(email, password, ckPassword, nickName, birthDate);
         try {
-            const res = await register({email, nickName, password});
+            const res = await register({email, nickName, password, birthDate});
             console.log("서버 응답 데이터 : ", res);
             alert("회원가입에 성공했습니다. 로그인해주세요.");
             router.push('/');
@@ -95,7 +101,12 @@ const Register = () => {
                 <Box>
                     <Heading as='h3' size='sm' pb="3" mt="8">닉네임</Heading>
                     <Text fontSize="sm" color="gray">다른 유저와 겹치지 않도록 입력해주세요. (2~15자)</Text>
-                    <Input placeholder="닉네임" mt="2" mb="10" onChange={onNickNameHandler}/>
+                    <Input placeholder="닉네임" mt="2" onChange={onNickNameHandler}/>
+                </Box>
+                <Box>
+                    <Heading as='h3' size='sm' pb="3" mt="8">생년월일</Heading>
+                    <Text fontSize="sm" color="gray">생년월일을 8자로 입력해주세요.</Text>
+                    <Input placeholder="생년월일(YYYYMMDD)" mt="2" mb="10" onChange={onBirthDateHandler}/>
                 </Box>
                 <ButtonGroup title="회원가입하기" ftColor="white" bgColor="#3589F0" onClick={onSubmit}/>
                 <Flex justify="center" pt="4">
